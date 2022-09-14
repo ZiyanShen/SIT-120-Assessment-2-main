@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet"
+      href="https://unpkg.com/bulma@0.7.4/css/bulma.css" />
+  </head>
+
+  <body>
+
+ 
+
+
+    <div id="app">
+      <div class="field">
+        <label class="checkbox">
+          <input v-model="checkbox"
+            type="checkbox" />
+          Tick the checkbox
+        </label>
+        <p v-model="checkbox"></p>
+      </div>
+
+ 
+
+      
+
+      <div class="field">
+        <button class="button is-info" @click="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
