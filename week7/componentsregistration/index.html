@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components registration local and global</title>
+  <body>
+    <ul>
+      <li>Go to School</li>
+      <li>Pick Up the animals</li>
+      <li>Buy groceries</li>
+      <li>Clean the house</li>
+    </ul>
+  <div id="app"> <!-- global registration -->
+     <task-list></task-list>
+     <task></task>
+</div>
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.min.js">
+    </script>
+
+    <script>
+      Vue.component('task-list', {  //global registration
+            template: `<div class="task-list">
+                        <h3>List Of Jobs</h3>
+                        <ul>
+                            <task v-for="task in tasks">{{task}}</task>
+                        </ul>
+                       </div>`,
+            data(){
+                return{
+                    tasks : ['Go to School', 'Pick Up the animals', 'Buy groceries', 'Clean the house']
+                }
+            }
+    });
+
+    Vue.component('task',{
+        template: `<li><slot></slot></li>`
+    });
+
+    let app = new Vue({
+        el: '#app'
+    });
+
+    </script>
+
+  </body>
+</html>
